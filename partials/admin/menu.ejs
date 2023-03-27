@@ -1,0 +1,99 @@
+<div class="sidebar close">
+  <div class="logo-details">
+    <i class='bx bxl-bitcoin'></i>
+    <span class="logo_name">Menu</span>
+  </div>
+  <ul class="nav-links">
+    <li>
+      <a href="/admin/">
+        <i class='bx bx-home'></i>
+        <span class="link_name">Home</span>
+      </a>
+      <ul class="sub-menu blank">
+        <li><a class="link_name" href="">Home page</a></li>
+      </ul>
+    </li>
+    <li>
+      <div class="icon-link">
+        <a href="/admin/about">
+          <i class='bx bx-bulb'></i>
+          <span class="link_name">About</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="">About page</a></li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <div class="icon-link">
+        <a href="/admin/archi">
+          <i class='bx bx-news'></i>
+          <span class="link_name">Architechure</span>
+          
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="">Architechure page</a></li>
+        </ul>
+        
+      </div>
+     
+    </li>
+     <li>
+      <div class="icon-link">
+        <a href="/admin/interior">
+          <i class='bx bx-file-find'></i>
+          <span class="link_name">Interior</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="">Interior page</a></li>
+        </ul>
+        
+      </div>
+      
+    </li>
+    <li>
+      <a href="/admin/qury">
+        <i class='bx bxs-credit-card' ></i>
+        <span class="link_name">Query's</span>
+      </a>
+      <ul class="sub-menu blank">
+        <li><a class="link_name" href="#">Qurey's page</a></li>
+      </ul>
+    </li>
+     
+      <div class="profile-details">
+        <div class="profile-content">
+          <img src="/img/sannu.png" alt="profileImg">
+        </div>
+        <div class="name-job">
+          <div class="profile_name">Shravan puri</div>
+          <div class="job">Architects</div>
+        </div>
+        <i class='bx bx-log-out text-danger'></i>
+      </div>
+    </li>
+  </ul>
+</div>
+
+
+<script>
+  /* When the user clicks on the button, 
+  toggle between hiding and showing the dropdown content */
+  function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+  </script>

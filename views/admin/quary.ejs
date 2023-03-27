@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../admin/css/adminstyle.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+</head>
+<body>
+    <%- include('../../partials/admin/menu.ejs')%>
+
+ 
+  <section class="home-section">
+    <div class="home-content">
+      <i class='bx bx-menu'></i>
+      <span class="text">Admin Architecture Panel</span>
+      
+    </div>
+    <div class="text-center">
+
+      <div style="background: linear-gradient(to right, #004e92, #000428);" class="bg-secondary">
+        <table class="table container m-auto mt-3">
+          <tr>
+            <th>Total Query's</th>
+            <th>Total Read</th>
+            <th>Total Unread</th>
+          </tr>
+          <tr>
+            <td><%=totalQuery%></td>
+            <td><%=totalRead%></td>
+            <td><%=totalUnread%></td>
+          </tr>
+        </table>
+      </div>
+
+      <form class="w-25 m-auto mt-3 text-center" action="/admin/quarysearch" method="post">
+        <label class="mt-2" for="">Slect Status</label>
+        <select name="search" id="" class="form-select">
+            <option value="Read">Read</option>
+            <option value="Unread">Unread</option>
+        </select>
+       <button style="background: linear-gradient(to right, #8da9bc, #000428);"  class=" btn btn-success mt-3" type="submit">search</button>
+
+    </form>
+     
+        <table style="background: linear-gradient(to right, #004e92, #000428);" class="table mt-4">
+            <thead>
+              <tr>
+                <th scope="col">S No.</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Subject</th>
+                <th scope="col">Body</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+                <th scope="col">Remove</th>
+              </tr>
+            </thead>
+            <tbody>
+                <%record.forEach((result,key)=>{%>
+              <tr>
+                <th scope="row"><%=key +1%></th>
+                <td><%=result.name%></td>
+                <td><%=result.email%></td>
+                <td><%=result.sub%></td>
+                <td class="w-25"><%=result.body%></td>
+
+                <% if(result.status=='Unread'){%>
+                <td><p class="text-warning"><%=result.status%></p></td>
+                <%}
+                else{%>
+                  <td><p class="text-danger"><%=result.status%></p></td>
+                  <%}
+                %>
+                <%if(result.status=="Read"){%>
+                <td><a href="/admin/quaryreply/<%=result.id%>"><button style="background: linear-gradient(to right, #004e92, #000428);"disabled>Replied</button></a></td>
+                <%}
+                else{%>
+                  <td><a href="/admin/quaryreply/<%=result.id%>"><button style="background: linear-gradient(to right, #004e92, #000428);" class="btn btn-primary">Reply</button></a></td>
+                  <%}
+                %>
+                <td><a href="/admin/deletquary/<%=result.id%>"><i style="color: white; font-size: 30px;" class="bi bi-trash3"></i></a></td>
+              </tr>
+              <%})%>
+              
+            </tbody>
+          </table>
+     
+    </div>
+       
+
+        
+
+        
+      
+      
+    
+  </section>
+
+  
+
+  <script>
+    let arrow = document.querySelectorAll(".arrow");
+for (var i = 0; i < arrow.length; i++) {
+  arrow[i].addEventListener("click", (e)=>{
+ let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+ arrowParent.classList.toggle("showMenu");
+  });
+}
+
+let sidebar = document.querySelector(".sidebar");
+let sidebarBtn = document.querySelector(".bx-menu");
+console.log(sidebarBtn);
+sidebarBtn.addEventListener("click", ()=>{
+  sidebar.classList.toggle("close");
+});
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../admin/css/adminstyle.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+</head>
+<body>
+    <%- include('../../partials/admin/menu.ejs')%>
+
+ 
+  <section style="background-color: #ffff;" class="home-section">
+    <div class="home-content">
+      <i class='bx bx-menu'></i>
+      <span class="text">Admin Home Panel</span>
+      
+    </div>
+    <div class="text-center">
+        <h5 style="color: blue;">Home page change</h5>
+        
+        <!-- <table class="table table-hover">
+            <tr>
+                <th>Logo</th>
+                <th>Slider One</th>
+                <th>Slider Second</th>
+                <th>Slider third</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                
+                <td><img style="height: 100px; width: 200px;" src="/upload/<%=record.logo%>" alt=""></td>
+                <td><img style="height: 100px; width: 200px;" src="/upload/<%=record.first%>" alt=""></td>
+                <td><img style="height: 100px; width: 200px;" src="/upload/<%=record.second%>" alt=""></td>
+                <td><img style="height: 100px; width: 200px;" src="/upload/<%=record.third%>" alt=""></td>
+                <td><a href="/admin/homeupdate/<%=record.id%>"><button class="btn btn-danger">Update</button></a></td>
+            </tr>
+            <tr>
+                <td>Please upload atlish 523*880 file in logo</td>
+            </tr>
+        </table> -->
+
+
+        <div class="row row-cols-1 row-cols-md-3 g-4 container m-auto">
+          
+          <div style="width: 250px;" class="col" >
+            <div style="background-color: transparent; border: none; width: 200px;" class="card">
+              <h2>Logo</h2>
+              <img style="height: 100px; width: 200px;" src="/upload/<%=record.logo%>" class="card-img-top" alt="...">
+              
+        </div>
+          </div>
+
+          <div style="width: 250px;" class="col">
+            <div style="background-color: transparent; border: none; width: 200px;" class="card">
+              <h2>First Slider</h2>
+              <img style="height: 100px; width: 200px;" src="/upload/<%=record.first%>" class="card-img-top" alt="...">
+              
+            </div>
+          </div>
+          <div style="width: 250px;" class="col" >
+            <div style="background-color: transparent; border: none; width: 200px;" class="card">
+              <h2>Second Slider</h2>
+              <img style="height: 100px; width: 200px;" src="/upload/<%=record.second%>" class="card-img-top" alt="...">
+              
+            </div>
+          </div>
+          <div style="width: 200px;" class="col">
+            <div style="background-color: transparent; border: none; width: 200px;" class="card">
+              <h2>Third Slider</h2>
+              <img style="height: 100px; width: 200px;" src="/upload/<%=record.third%>" class="card-img-top" alt="...">
+              
+              
+            </div>
+          </div>
+          
+
+
+          <div style="width: 220px;" class="col" >
+            <div style="background-color: transparent; border: none; width: 200px;" class="card">
+              <h2>Action</h2>
+              <a href="/admin/homeupdate/<%=record.id%>"><i style="font-size: 40px; color: black;" class="bi bi-pencil-square card-img-top"></i></a>
+              
+        </div>
+          </div>
+        
+        
+      </div>
+    
+  </section>
+
+  
+
+  <script>
+    let arrow = document.querySelectorAll(".arrow");
+for (var i = 0; i < arrow.length; i++) {
+  arrow[i].addEventListener("click", (e)=>{
+ let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+ arrowParent.classList.toggle("showMenu");
+  });
+}
+
+let sidebar = document.querySelector(".sidebar");
+let sidebarBtn = document.querySelector(".bx-menu");
+console.log(sidebarBtn);
+sidebarBtn.addEventListener("click", ()=>{
+  sidebar.classList.toggle("close");
+});
+  </script>
+  
+</body>
+</html>

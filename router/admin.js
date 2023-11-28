@@ -70,7 +70,7 @@ router.post('/homeupdaterecord/:id',upload.fields([{name:'logo'},{name:'first'},
         {
             const uploadimg=(req.files)[key][0]
             const fieldname=uploadimg.fieldname
-            console.log(fieldname,(uploadimg.filename,req.files))
+            // console.log(fieldname,(uploadimg.filename,req.files))
             if(fieldname=='logo')
             {
                 await Home.findByIdAndUpdate(id,{logo:(uploadimg.filename)})
